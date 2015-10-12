@@ -19,10 +19,7 @@ lazy val commonSettings = Seq(
 lazy val root = (project in file(".")).
   aggregate(ten, eleven, both).
   settings(commonSettings:_*).
-  settings(name := "root",
-           scalaVersion := scala_211,
-           crossScalaVersions := Seq(scala_211, scala_210)
-  )
+  settings(name := "root")
 
 lazy val both = project.
   settings(commonSettings:_*).
