@@ -18,6 +18,7 @@ lazy val commonSettings = Seq(
 
 lazy val root = (project in file(".")).
   aggregate(ten, eleven, both).
+  enablePlugins(CrossPerProjectPlugin).
   settings(commonSettings:_*).
   settings(name := "root",
            scalaVersion := scala_211,
