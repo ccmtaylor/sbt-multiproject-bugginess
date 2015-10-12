@@ -1,9 +1,18 @@
+import sbtrelease.ReleasePlugin.autoImport._
+import ReleaseTransformations._
+
 lazy val scala_211 = "2.11.7"
 lazy val scala_210 = "2.10.6"
 
 lazy val commonSettings = Seq(
   organization := "whatever",
   version := "0.0.1-SNAPSHOT",
+  releaseCrossBuild := true,
+  // minimal "release process", so that we don't affect the repo.
+  releaseProcess := Seq(
+    runTest,
+    publishArtifacts 
+  ),
   publishTo := Some(Resolver.file("file",  new File(Path.userHome.absolutePath+"/.m2/repository")))
 )
 
